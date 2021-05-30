@@ -1,10 +1,10 @@
 import React from 'react';
 
-function BlogList({ blogs, deleteBlog }) {
+function BlogList({ blogs }) {
     return (
         <div className="blog_list">
             {blogs.map(blog => {
-                const { id, title, author, body } = blog;
+                const { id, title, author } = blog;
 
                 return (
                     <div
@@ -12,16 +12,11 @@ function BlogList({ blogs, deleteBlog }) {
                         key={id} >
 
                         <h2>{title}</h2>
-                        <p>{author}</p>
-                        <h3>{body}</h3>
-                        <button
-                            onClick={() => deleteBlog(id)}>
-                            Delete
-                        </button>
+                        <p>Written by : {author}</p>
 
                     </div>
                 );
-            })}
+            })};
         </div>
     );
 }

@@ -12,7 +12,6 @@ const App = () => {
 
         <Router>
             <NavBar />
-
             <div className="content">
                 <Home />
             </div>

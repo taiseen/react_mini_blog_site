@@ -1,0 +1,22 @@
+{
+    "blogs": [
+        {
+            "title": "My First Blog",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?",
+            "author": "seen",
+            "id": 1
+        },
+        {
+            "title": "Alex Blog",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?",
+            "author": "alex",
+            "id": 2
+        },
+        {
+            "title": "Shopping Tips",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?",
+            "author": "alex",
+            "id": 3
+        }
+    ]
+}

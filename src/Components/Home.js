@@ -1,41 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BlogList from './BlogList';
 
 
 function Home() {
 
-    const allBlog = [
-        { id: 1, title: 'My New Habit', body: 'lorem ipsum...', author: 'taiseen' },
-        { id: 2, title: 'Book I read', body: 'lorem ipsum...', author: 'alex' },
-        { id: 3, title: 'Go to see', body: 'lorem ipsum...', author: 'saimon' },
-        { id: 4, title: 'Shopping tricks', body: 'lorem ipsum...', author: 'alex' },
-    ]
+    const [blogs, setBlogs] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const [blogs, setBlogs] = useState(allBlog);
+    useEffect(() => {
 
-    const handleClick = (e) => {
-        // trigger the react | to | re-render the template | change is happening...
+        const url = `http://localhost:8000/blogs`;
 
-    }
+        // waiting for 2 seconds
+        setTimeout(() => {
+            fetch(url)
+                .then(res => {
 
-    const deleteBlog = (id) => {
-        setBlogs(blogs.filter(blog => blog.id !== id))
-    }
+                    return res.json()
+                })
+                .then(data => {
+                    setBlogs(data)
+                    setIsLoading(false)
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+        }, 2000);
+    }, []);
+
+    // const deleteBlog = (id) => {
+    //     setBlogs(blogs.filter(blog => blog.id !== id))
+    // }
 
     return (
         <div className="home">
             <div>
                 <h2>Blog List</h2>
-                <BlogList blogs={blogs} deleteBlog={deleteBlog} />
-            </div>
-            <div>
-                <h2>alex's blog</h2>
-                <BlogList
-                    blogs={blogs.filter(blog => blog.author === 'alex')}
-                    deleteBlog={deleteBlog} />
+                {isLoading && <h2>Loading...</h2>}
+                {blogs && <BlogList blogs={blogs} />}
             </div>
         </div>
     );
 }
 
 export default Home;
+
+
+// {
+//     "blogs": [
+//         {
+//             "title": "My First Blog",
+//             "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?",
+//             "author": "seen",
+//             "id": 1
+//         },
+//         {
+//             "title": "Alex Blog",
+//             "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?",
+//             "author": "alex",
+//             "id": 2
+//         },
+//         {
+//             "title": "Shopping Tips",
+//             "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit incidunt sunt, eligendi fuga natus doloribus magni nemo adipisci eum inventore beatae iure dolor dicta cum! Ipsa dignissimos nobis ullam?",
+//             "author": "alex",
+//             "id": 3
+//         }
+//     ]
+// }

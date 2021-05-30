@@ -79,11 +79,11 @@ button:hover {
 .blog_preview h2 {
   font-size    : 30px;
   color        : #F1356D;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   line-height  : 1px;
 }
 
 .blog_list {
-  border : 1px solid tomato;
+  /* border : 1px solid tomato; */
   padding: 10px 28px;
 }

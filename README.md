@@ -6,5 +6,8 @@
 * Object Destructuring
 * Implement -> useState & useEffect with dependency
 * React input form
-* User LocalStorage
-* Bootstrap
+
+
+# Json Server | Locally Serve Data
+* npm install -g json-server
+* npx json-server --watch ./src/db/db.json --port 8000

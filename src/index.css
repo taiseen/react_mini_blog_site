@@ -19,6 +19,20 @@ body {
   border         : .5px dashed #999999;
 }
 
+/* For Loading SMS */
+.home div span {
+  color      : green;
+  font-weight: 700;
+  font-size  : 35px;
+}
+
+/* For Error SMS */
+.home div h3 {
+  margin     : 20px 0 0;
+  color      : tomato;
+  font-weight: 700;
+}
+
 .navbar {
   padding        : 20px;
   display        : flex;

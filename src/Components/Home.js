@@ -1,42 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import BlogList from './BlogList';
+import useFetch from './useFetch';
 
 
 function Home() {
 
-    const [blogs, setBlogs] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-
-        const url = `http://localhost:8000/blogs`;
-
-        // waiting for 2 seconds
-        setTimeout(() => {
-            fetch(url)
-                .then(res => {
-
-                    return res.json()
-                })
-                .then(data => {
-                    setBlogs(data)
-                    setIsLoading(false)
-                })
-                .catch(err => {
-                    console.log(err)
-                });
-        }, 2000);
-    }, []);
-
-    // const deleteBlog = (id) => {
-    //     setBlogs(blogs.filter(blog => blog.id !== id))
-    // }
+    const { data : blogs, isLoading, error, } = useFetch('blogs');
 
     return (
         <div className="home">
             <div>
                 <h2>Blog List</h2>
-                {isLoading && <h2>Loading...</h2>}
+                {isLoading && <span>Loading...</span>}
+                {error && <h3>{error}</h3>}
                 {blogs && <BlogList blogs={blogs} />}
             </div>
         </div>

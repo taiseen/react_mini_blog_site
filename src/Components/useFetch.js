@@ -31,8 +31,8 @@ const useFetch = (endPoint) => {
                 });
 
         },
-            // waiting for 2 seconds
-            2000);
+            // waiting for 1 seconds
+            1000);
 
         return (() => {
             console.log("clearing");

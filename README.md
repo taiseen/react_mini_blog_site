@@ -11,6 +11,6 @@
 
 
 
-# Json Server | Locally Serve Data
+## Json Server | Locally Serve Data
 * npm install -g json-server
 * npx json-server --watch ./src/db/db.json --port 8000

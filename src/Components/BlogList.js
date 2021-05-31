@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Blog from './Blog';
 
 function BlogList({ blogs }) {
     return (
@@ -6,15 +8,18 @@ function BlogList({ blogs }) {
             {blogs.map(blog => {
                 const { id, title, author } = blog;
 
+
                 return (
-                    <div
-                        className="blog_preview"
-                        key={id} >
+                    <Link to={`/blog/${id}`} >
+                        <div
+                            className="blog_preview"
+                            key={id} >
+                            <h2>{title}</h2>
+                            <p>Written by : {author}</p>
+                            <Blog></Blog>
 
-                        <h2>{title}</h2>
-                        <p>Written by : {author}</p>
-
-                    </div>
+                        </div>
+                    </Link>
                 );
             })};
         </div>

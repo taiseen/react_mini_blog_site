@@ -5,7 +5,7 @@ import useFetch from './useFetch';
 
 function Home() {
 
-    const { data : blogs, isLoading, error, } = useFetch('blogs');
+    const { data : blogs, isLoading, error } = useFetch('blogs');
 
     return (
         <div className="home">

@@ -8,16 +8,17 @@ const useFetch = (endPoint) => {
 
 
     useEffect(() => {
+        const abortCont = new AbortController();
 
         const url = `http://localhost:8000/${endPoint}`;
 
         setTimeout(() => {
-            fetch(url)
+            fetch(url, { signal: abortCont.signal })
                 .then(res => {
                     if (!res.ok) {
                         throw Error('Could Not Fetch Data From That Resource')
                     }
-                    return res.json()
+                    return res.json();
                 })
                 .then(data => {
                     setData(data);
@@ -25,23 +26,24 @@ const useFetch = (endPoint) => {
                     setError(null);
                 })
                 .catch(err => {
-                    setError(err.message);
-                    setIsLoading(false);
-                    setData(null);
+                    if (err.name === 'AbortError') {
+                        console.log('Fetch aborted');
+                    } else {
+                        setError(err.message);
+                        setIsLoading(false);
+                        setData(null);
+                    }
                 });
-
         },
             // waiting for 1 seconds
             1000);
 
-        return (() => {
-            console.log("clearing");
-        });
+        return () => abortCont.abort();
 
         // run this useEffect only for this ==> endPoint
     }, [endPoint]);
 
-    return { data, isLoading, error, };
+    return { data, isLoading, error };
 
 };
 

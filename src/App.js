@@ -7,11 +7,12 @@ import About from "./Components/About";
 import Blog from "./Components/Blog";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
-import NewBlog from "./Components/NewBlog";
+import CreateBlog from "./Components/CreateBlog";
 
 const App = () => {
 
     return (
+
         <Router>
             <NavBar />
             <div className="content">
@@ -19,8 +20,8 @@ const App = () => {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route path="/newBlog">
-                        <NewBlog />
+                    <Route path="/createBlog">
+                        <CreateBlog />
                     </Route>
                     <Route path="/blog/:id">
                         <Blog />
@@ -28,10 +29,10 @@ const App = () => {
                     <Route path="/about">
                         <About />
                     </Route>
-
                 </Switch>
             </div>
         </Router>
+        
     );
 };
 

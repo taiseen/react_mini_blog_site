@@ -35,7 +35,7 @@ const useFetch = (endPoint) => {
             2000);
 
         return (() => {
-            console.log("clining");
+            console.log("clearing");
         });
 
         // run this useEffect only for this ==> endPoint

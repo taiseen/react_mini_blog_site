@@ -18,7 +18,6 @@ function Blog() {
             .then(() => {
                 history.push('/');
             });
-
     }
 
     return (

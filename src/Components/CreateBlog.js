@@ -17,14 +17,16 @@ function CreateBlog() {
         setIsPending(true);
 
         // Question :- after collecting data, what should we do with this?
-        // Answer   :- so now send a POST request, to servers particular end-point of api...
-        //             & convert this normal object into JSON formate, 
-        //             so that transfer protocol can process this data. 
-        //             so this is the gate-way for communication with server.
+
+        /* Answer   :- 
+        so now send a POST request, to servers particular end-point of api...
+        & convert this normal object into JSON formate, 
+        so that transfer protocol can process this data. 
+        so this is the gate-way for communication with server.*/
 
         // const endPoint = 'blogs'; // api end-point
-        // const url = `http://localhost:8000/${endPoint}`;
-        
+        // const url = `http://localhost:8000/${endPoint}`;     
+          
         const url = serverUrl_With_Api_EndPoint;
 
         fetch(url, {

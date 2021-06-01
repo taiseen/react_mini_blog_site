@@ -1,4 +1,5 @@
 import { useHistory, useParams } from 'react-router';
+import { serverUrl_With_Api_EndPoint } from './serverURL';
 import useFetch from './useFetch';
 
 function Blog() {
@@ -9,7 +10,9 @@ function Blog() {
 
     const handleDelete = () => {
 
-        const url = 'http://localhost:8000/blogs/' + id;
+      //const url = 'http://localhost:8000/blogs/' + id;
+      
+        const url = serverUrl_With_Api_EndPoint + id;
 
         fetch(url, { method: 'DELETE' })
             .then(() => {

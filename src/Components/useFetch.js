@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { serverUrl } from "./serverURL";
 
 const useFetch = (apiEndPoint) => {
 
@@ -9,7 +10,7 @@ const useFetch = (apiEndPoint) => {
     useEffect(() => {
         const abortCont = new AbortController();
 
-        const url = `http://localhost:8000/${apiEndPoint}`;
+        const url = serverUrl + apiEndPoint;
 
         setTimeout(() => {
             fetch(url, { signal: abortCont.signal })

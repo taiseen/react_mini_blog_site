@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { serverUrl_With_Api_EndPoint } from './serverURL';
 
 function CreateBlog() {
 
@@ -21,8 +22,10 @@ function CreateBlog() {
         //             so that transfer protocol can process this data. 
         //             so this is the gate-way for communication with server.
 
-        const endPoint = 'blogs'; // api end-point
-        const url = `http://localhost:8000/${endPoint}`;
+        // const endPoint = 'blogs'; // api end-point
+        // const url = `http://localhost:8000/${endPoint}`;
+        
+        const url = serverUrl_With_Api_EndPoint;
 
         fetch(url, {
             method: 'POST',

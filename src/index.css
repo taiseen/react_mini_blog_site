@@ -61,8 +61,6 @@ body {
   color: #F1356D;
 }
 
-
-
 button {
   border       : .5px solid #000;
   outline      : 0;
@@ -165,5 +163,17 @@ button:hover {
   padding      : 8px;
   border-radius: 8px;
   cursor       : pointer;
+}
 
+.page-not-found {
+  text-align: center;
+
+}
+
+.page-not-found a {
+  display        : block;
+  margin-top     : 40px;
+  text-decoration: none;
+  color          : #F1356D;
+  cursor         : pointer;
 }

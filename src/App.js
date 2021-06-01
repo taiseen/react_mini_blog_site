@@ -36,7 +36,7 @@ const App = () => {
                         <About />
                     </Route>
 
-                    <Route path="/*">
+                    <Route path="*">
                         <PageNotFound />
                     </Route>
 

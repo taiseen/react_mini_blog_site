@@ -36,7 +36,7 @@ const useFetch = (endPoint) => {
                 });
         },
             // waiting for 1 seconds
-            1000);
+            500);
 
         return () => abortCont.abort();
 

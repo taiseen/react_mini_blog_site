@@ -8,6 +8,7 @@ import Blog from "./Components/Blog";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import CreateBlog from "./Components/CreateBlog";
+import PageNotFound from "./Components/PageNotFound";
 
 const App = () => {
 
@@ -29,10 +30,13 @@ const App = () => {
                     <Route path="/about">
                         <About />
                     </Route>
+                    <Route path="/*">
+                        <PageNotFound />
+                    </Route>
                 </Switch>
             </div>
         </Router>
-        
+
     );
 };
 

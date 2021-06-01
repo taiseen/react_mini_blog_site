@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import BlogList from './BlogList';
 import useFetch from './useFetch';
 
+const Home = () => {
 
-function Home() {
-
-    const { data : blogs, isLoading, error } = useFetch('blogs');
+    // api end-point | Custom Hook [ useState + useEffect ]
+    const { data: blogs, isLoading, error } = useFetch('blogs');
 
     return (
         <div className="home">
@@ -20,6 +19,22 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // {

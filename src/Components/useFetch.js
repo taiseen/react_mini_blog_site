@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
 
-const useFetch = (endPoint) => {
+const useFetch = (apiEndPoint) => {
 
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-
     useEffect(() => {
         const abortCont = new AbortController();
 
-        const url = `http://localhost:8000/${endPoint}`;
+        const url = `http://localhost:8000/${apiEndPoint}`;
 
         setTimeout(() => {
             fetch(url, { signal: abortCont.signal })
                 .then(res => {
                     if (!res.ok) {
-                        throw Error('Could Not Fetch Data From That Resource')
+                        throw Error(`Could Not Fetch Data From End-Point of API`);
                     }
                     return res.json();
                 })
@@ -27,24 +26,21 @@ const useFetch = (endPoint) => {
                 })
                 .catch(err => {
                     if (err.name === 'AbortError') {
-                        console.log('Fetch aborted');
+                        console.log('Fetch aborted | For Component Fast Switching...');
                     } else {
                         setError(err.message);
                         setIsLoading(false);
                         setData(null);
                     }
                 });
-        },
-            // waiting for 1 seconds
-            500);
+        }, 500);
 
         return () => abortCont.abort();
 
-        // run this useEffect only for this ==> endPoint
-    }, [endPoint]);
+        // run this useEffect only for this ==> apiEndPoint
+    }, [apiEndPoint]);
 
     return { data, isLoading, error };
-
 };
 
 export default useFetch;

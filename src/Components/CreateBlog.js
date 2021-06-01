@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import useFetch from './useFetch';
+import { useHistory } from 'react-router';
 
 function CreateBlog() {
-
-    const { data: blogs, isLoading, error } = useFetch('blogs');
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('');
     const [isPending, setIsPending] = useState(false);
-
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const blog = { title, body, author };
         setIsPending(true);
 
@@ -37,13 +36,16 @@ function CreateBlog() {
         setTitle('');
         setBody('');
         setAuthor('');
+
+        // Programmatic Redirect User
+        history.push('/');
     };
 
 
-    return (
+    return (  // JSX template for >>> HTML DOM Node's
+
         <div className="create">
             <form onSubmit={handleSubmit}>
-
                 <label > Blog Title </label>
                 <input
                     type="text"
@@ -76,7 +78,6 @@ function CreateBlog() {
                         ? <button>Add Blog</button>
                         : <button disabled>Adding Blog...</button>
                 }
-
             </form>
         </div >
     );

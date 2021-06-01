@@ -1,8 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-function BlogList({ blogs }) {
-    return (
+const BlogList = ({ blogs }) => {
+
+    return (  // JSX template for >>> HTML DOM Node's
+
         <div className="blog_list">
 
             {blogs.map(blog => {
